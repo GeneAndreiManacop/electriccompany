@@ -184,7 +184,7 @@
                     <li class="nav-item">
                         <a class="nav-link <?= (isset($page) && $page == 'contact') ? 'active' : '' ?>" href="<?= base_url('contact') ?>">Contact</a>
                     </li>
-                    <?php if (session()->get('isLogged') === true): ?>
+                    <?php if (session()->get('isLoggedIn') === true): ?>
                         <li class="nav-item">
                             <a class="nav-link <?= (isset($page) && $page == 'dashboard') ? 'active' : '' ?>" href="<?= base_url('dashboard') ?>">Dashboard</a>
                         </li>
