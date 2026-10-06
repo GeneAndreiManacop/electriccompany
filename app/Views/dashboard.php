@@ -77,6 +77,18 @@
             overflow-x: auto;
         }
 
+        .badge-industrial {
+            background-color: #f7971e;
+        }
+
+        .badge-residential {
+            background-color: #00c6ff;
+        }
+
+        .badge-commercial {
+            background-color: #17c55a;
+        }
+
         .badge-active {
             background-color: #28a745;
         }
@@ -256,7 +268,13 @@
                                 <td><?= esc($account['customer_name']) ?></td>
                                 <td><?= esc($account['email']) ?></td>
                                 <td><?= esc($account['phone']) ?></td>
-                                <td><span class="badge bg-info"><?= ucfirst(esc($account['connection_type'])) ?></span></td>
+                                <?php
+                                $connectionType = strtolower($account['connection_type']);
+                                $connectionCardClass = in_array($connectionType, ['residential', 'commercial', 'industrial'], true)
+                                    ? 'badge-' . $connectionType
+                                    : 'badge-total';
+                                ?>
+                                <td><span class="badge <?= $connectionCardClass ?>"><?= ucfirst(esc($account['connection_type'])) ?></span></td>
                                 <td>
                                     <?php
                                     $badgeClass = 'badge-' . $account['status'];
