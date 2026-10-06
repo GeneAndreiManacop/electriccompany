@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ${strengthColors[strength - 1] || strengthColors[0]}"></div>
         </div>
         <small class="text-muted">Password strength: ${strengthLevels[strength - 1] ||
-                    strengthLevels[0]}</small>
+            strengthLevels[0]}</small>
         `;
     }
     function animateCounter(element, start, end, suffix, duration) {
@@ -219,38 +219,11 @@ document.addEventListener('DOMContentLoaded', function () {
     tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
-    // Back to top button
-    const backToTopBtn = document.createElement('button');
-    backToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-    backToTopBtn.className = 'btn btn-primary position-fixed';
-    backToTopBtn.style.cssText = `
-bottom: 20px;
-right: 20px;
-z-index: 1000;
-border-radius: 50%;
-width: 50px;
-height: 50px;
-display: none;
-box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-`;
-    document.body.appendChild(backToTopBtn);
-    window.addEventListener('scroll', function () {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.style.display = 'block';
-        } else {
-            backToTopBtn.style.display = 'none';
-        }
-    });
-    backToTopBtn.addEventListener('click', function () {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
     // Console welcome message
     console.log('%cPowerFlow Electric', 'color: #1e40af; font-size: 24px; font-weight: bold;');
     console.log('%cWebsite powered by CodeIgniter 4', 'color: #f59e0b; font-size: 14px;');
 });
+
 // Service Worker registration (for future PWA features)
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
